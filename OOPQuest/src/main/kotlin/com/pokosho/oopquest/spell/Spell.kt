@@ -5,7 +5,7 @@ package com.pokosho.oopquest.spell
  */
 interface Spell {
     val damage: Int
-        get() = 10
+        get() = 15
     val magicPointCost: Int
         get() = 2
 }

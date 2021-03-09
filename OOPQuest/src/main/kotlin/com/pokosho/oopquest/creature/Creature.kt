@@ -12,7 +12,7 @@ interface Creature {
 
     // TODO: 攻撃クラスで表現すべきかもしれませんが今回は目をつぶってください。
     fun attack(targets: List<Creature>): Creature {
-        val target = targets.firstOrNull() ?: throw IllegalAccessException("no targets")
+        val target = this.target(targets)
         val damage = this.offence - target.defense
         target.hitPoint -= if (damage < 0) { 0 } else { damage }
         return target
@@ -20,5 +20,9 @@ interface Creature {
 
     fun hasSpells(): Boolean {
         return spells.isEmpty()
+    }
+
+    fun target(targets: List<Creature>): Creature {
+        return targets.shuffled().firstOrNull() ?: throw IllegalAccessException("no targets")
     }
 }
