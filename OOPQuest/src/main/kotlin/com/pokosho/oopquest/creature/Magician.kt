@@ -22,7 +22,7 @@ class Magician(
             ?: return super.attack(targets)
         // TODO: immutableにした方が良いのでしょうね
         this.magicPoint -= spell.magicPointCost
-        target.hitPoint = spell.damage
+        target.hitPoint -= spell.damage
         return AttackResult(this, target, SpellAttach(spell), spell.damage)
     }
 }

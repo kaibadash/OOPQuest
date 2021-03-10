@@ -10,6 +10,7 @@ class Battle(val members: List<Creature>, val monsters: List<Creature>) {
             activeMembers.forEach {
                 val attackResult = it.attack(activeMonsters)
                 println(attackResult)
+                println("aaaaaa:" + attackResult.target.hitPoint)
                 if (attackResult.target.hitPoint <= 0) {
                     println("${attackResult.target.name} を倒した")
                 }
