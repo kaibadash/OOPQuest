@@ -6,14 +6,13 @@ import com.pokosho.oopquest.creature.Monster
 import com.pokosho.oopquest.spell.Fire
 
 fun main() {
-    val count = 100
+    val count = 1
     val results = mutableListOf<Boolean>()
     for (i in 0..count) {
         results.add(Battle(
             listOf(
                 Fighter("センシ", 30, 0, 10, 10),
-                Fighter("ファイタ", 30, 0, 10, 10),
-                Magician("マホ", 15, 6, 5, 5, listOf(Fire())),
+                Magician("マホ", 15, 2, 5, 5, listOf(Fire())),
             ), listOf(
                 Monster("カンドタ", 130, 0, 16, 4, listOf()),
             )

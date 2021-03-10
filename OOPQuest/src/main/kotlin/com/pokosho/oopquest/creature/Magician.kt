@@ -1,7 +1,6 @@
 package com.pokosho.oopquest.creature
 
 import com.pokosho.oopquest.AttackResult
-import com.pokosho.oopquest.PhysicalAttach
 import com.pokosho.oopquest.SpellAttach
 import com.pokosho.oopquest.spell.Spell
 
@@ -13,7 +12,6 @@ class Magician(
     override val defense: Int,
     override val spells: List<Spell>
 ) : Creature {
-    // TODO: 攻撃クラスで表現すべきかもしれませんが今回は目をつぶってください。
     override fun attack(targets: List<Creature>): AttackResult {
         val target = targets.firstOrNull() ?: throw IllegalAccessException("no targets")
         if (!this.hasSpells()) {

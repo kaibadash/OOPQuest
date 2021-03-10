@@ -9,6 +9,6 @@ class AttackResult(
     val damage: Int
 ) {
     override fun toString(): String {
-        return "${attacker.name} の ${attack.description()}！ ${target.name} に ${damage} のダメージ！"
+        return "${attacker.name} は ${attack.description()}！ ${target.name} に ${damage} のダメージ！"
     }
 }

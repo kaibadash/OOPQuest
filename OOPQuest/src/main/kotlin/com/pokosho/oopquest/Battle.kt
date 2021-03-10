@@ -11,7 +11,7 @@ class Battle(val members: List<Creature>, val monsters: List<Creature>) {
                 val attackResult = it.attack(activeMonsters)
                 println(attackResult)
                 if (attackResult.target.hitPoint <= 0) {
-                    println("${attackResult.target} を倒した")
+                    println("${attackResult.target.name} を倒した")
                 }
             }
             activeMonsters = monsters.filter { it.hitPoint > 0 }

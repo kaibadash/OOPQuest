@@ -20,7 +20,7 @@ interface Creature {
     }
 
     fun hasSpells(): Boolean {
-        return spells.isEmpty()
+        return spells.isNotEmpty()
     }
 
     fun target(targets: List<Creature>): Creature {
