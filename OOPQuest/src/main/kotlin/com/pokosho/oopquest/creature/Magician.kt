@@ -17,10 +17,11 @@ class Magician(
         if (!this.hasSpells()) {
             return super.attack(targets)
         }
-        val spell = spells.filter { it.magicPointCost <= this.magicPoint }.firstOrNull()
+        val spell = spells.filter {
+            it.magicPointCost <= this.magicPoint }.firstOrNull()
             ?: return super.attack(targets)
-        // TODO: immutableにしたい
-        this.magicPoint = spell.magicPointCost
+        // TODO: immutableにした方が良いのでしょうね
+        this.magicPoint -= spell.magicPointCost
         target.hitPoint = spell.damage
         return AttackResult(this, target, SpellAttach(spell), spell.damage)
     }
