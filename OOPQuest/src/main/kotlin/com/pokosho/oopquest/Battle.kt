@@ -8,18 +8,18 @@ class Battle(val members: List<Creature>, val monsters: List<Creature>) {
         var activeMonsters = monsters.filter { it.hitPoint > 0 }
         while (activeMembers.isNotEmpty() && activeMonsters.isNotEmpty()) {
             activeMembers.forEach {
-                val target = it.attack(activeMonsters)
-                println("${it.name} は ${target.name} を攻撃した")
-                if (target.hitPoint <= 0) {
-                    println("${target.name} を倒した")
+                val attackResult = it.attack(activeMonsters)
+                println(attackResult)
+                if (attackResult.target.hitPoint <= 0) {
+                    println("${attackResult.target} を倒した")
                 }
             }
             activeMonsters = monsters.filter { it.hitPoint > 0 }
             activeMonsters.forEach {
-                val target = it.attack(activeMembers)
-                println("${it.name} は ${target.name} を攻撃した")
-                if (target.hitPoint <= 0) {
-                    println("${target.name} は死んでしまった")
+                val attackResult = it.attack(activeMembers)
+                println(attackResult)
+                if (attackResult.target.hitPoint <= 0) {
+                    println("${attackResult.target.name} は死んでしまった")
                 }
             }
             activeMembers = members.filter { it.hitPoint > 0 }

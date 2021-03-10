@@ -1,5 +1,7 @@
 package com.pokosho.oopquest.creature
 
+import com.pokosho.oopquest.AttackResult
+import com.pokosho.oopquest.PhysicalAttach
 import com.pokosho.oopquest.spell.Spell
 
 interface Creature {
@@ -10,12 +12,11 @@ interface Creature {
     val defense: Int
     val spells: List<Spell>
 
-    // TODO: 攻撃クラスで表現すべきかもしれませんが今回は目をつぶってください。
-    fun attack(targets: List<Creature>): Creature {
+    fun attack(targets: List<Creature>): AttackResult {
         val target = this.target(targets)
         val damage = this.offence - target.defense
         target.hitPoint -= if (damage < 0) { 0 } else { damage }
-        return target
+        return AttackResult(this, target, PhysicalAttach(), damage)
     }
 
     fun hasSpells(): Boolean {
